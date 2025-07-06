@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications Service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .status {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 1rem 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .description {
+            font-size: 1.1rem;
+            margin: 1.5rem 0;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .features {
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin: 0.8rem 0;
+            font-size: 1rem;
+        }
+
+        .feature-icon {
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .buttons {
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            box-shadow: 0 4px 15px 0 rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px 0 rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .version {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .api-info {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .endpoint {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.3rem 0.6rem;
+            border-radius: 5px;
+            margin: 0.2rem 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">📧</div>
+        <h1 th:text="${serviceName}">Notifications Service</h1>
+        <div class="status" th:text="${status}">✅ WORKS!</div>
+
+        <div class="description">
+            Your microservice for sending Email, SMS, and Push notifications is up and running!
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">📧</span>
+                <span>Email notifications (Real SMTP support)</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📱</span>
+                <span>SMS notifications (Simulated)</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔔</span>
+                <span>Push notifications (Simulated)</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔄</span>
+                <span>Async processing</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📝</span>
+                <span>Swagger API documentation</span>
+            </div>
+        </div>
+
+        <div class="api-info">
+            <h3>🚀 Quick API Access</h3>
+            <div class="endpoint">POST /api/v1/notifications/email</div>
+            <div class="endpoint">POST /api/v1/notifications/sms</div>
+            <div class="endpoint">POST /api/v1/notifications/push</div>
+            <div class="endpoint">POST /api/v2/notifications/* (Enhanced)</div>
+        </div>
+
+        <div class="buttons">
+            <a href="/swagger-ui.html" class="btn btn-primary">
+                📚 Open Swagger UI
+            </a>
+            <a href="/api-docs" class="btn btn-secondary">
+                📋 API Docs
+            </a>
+        </div>
+
+        <div class="version">
+            <p>Version <span th:text="${version}">2.0</span> | Spring Boot Microservice</p>
+            <p>Ready to handle all your notification needs! 🎉</p>
+        </div>
+    </div>
+</body>
+</html>
