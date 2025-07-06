@@ -18,6 +18,8 @@ target/
 *.iml
 *.ipr
 
+*.log
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -34,3 +36,8 @@ build/
 ### OS ###
 .DS_Store
 Thumbs.db
+
+# Application Properties - Exclude sensitive configurations
+application-prod.properties
+application-local.properties
+application-secrets.properties
