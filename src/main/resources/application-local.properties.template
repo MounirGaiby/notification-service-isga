@@ -1,0 +1,27 @@
+# Local Development Configuration Template
+# Copy this file to application-local.properties and fill in your actual credentials
+# This template is safe to commit - it contains no sensitive information
+
+# Email Configuration for Local Testing
+# Option 1: Gmail SMTP (requires app password)
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=YOUR_EMAIL@gmail.com
+spring.mail.password=YOUR_APP_PASSWORD
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.properties.mail.smtp.starttls.required=true
+
+# Option 2: Mailtrap for testing (recommended for development)
+# Register at https://mailtrap.io/ and get your credentials
+# spring.mail.host=sandbox.smtp.mailtrap.io
+# spring.mail.port=2525
+# spring.mail.username=YOUR_MAILTRAP_USERNAME
+# spring.mail.password=YOUR_MAILTRAP_PASSWORD
+
+# Override noreply address for local testing
+spring.mail.noreply.address=noreply@localhost.com
+
+# Enable debug logging for local development
+logging.level.com.mounirgaiby.notificationsservice=DEBUG
+logging.level.org.springframework.mail=DEBUG
