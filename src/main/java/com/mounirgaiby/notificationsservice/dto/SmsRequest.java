@@ -10,7 +10,6 @@ public class SmsRequest {
 
     @Schema(description = "Phone number", example = "+1234567890")
     @NotBlank(message = "Phone number is required")
-    @Pattern(regexp = "^\\+?[1-9]\\d{1,14}$", message = "Invalid phone number format")
     private String phoneNumber;
 
     @Schema(description = "SMS message text", example = "Your verification code is: 123456")
